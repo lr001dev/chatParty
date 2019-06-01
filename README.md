@@ -4,7 +4,7 @@ Chat Party is live chat application that allows users to create their own chat r
 
 # Technologies Used:
 
-CRUD(CREATE, READ, UPDATE, DELETE), Node.js, Express, SocketIO, REST API, MongoDB, Mongoose, Express Session, MHTML5, Bootstrap & Javascript.
+CRUD(CREATE, READ, UPDATE, DELETE), Node.js, Express, SocketIO, REST API, MongoDB, Mongoose, Express Session, HTML5, Bootstrap & Javascript.
 
 # Workflow on Trello:
 https://trello.com/b/xeBeVRpr/sei-chat-party
