@@ -1,10 +1,22 @@
 # Chat Party
 
-Chat Party is live chat application that allows users to create their own chat rooms. Create a chat room and invite users to participate.
+Chat Party is live chat application that allows users to create their own chat rooms. Create a chat room and invite users to participate. 
 
 # Technologies Used:
 
 CRUD(CREATE, READ, UPDATE, DELETE), Node.js, Express, SocketIO, REST API, MongoDB, Mongoose, Express Session, HTML5, Bootstrap & Javascript.
+
+# Features to Meet Requirements:
+
+Create Chat room
+View All Chat rooms
+Update Chat room
+Delete Chat room
+Create User Account
+
+# Stretch Goal:
+Integrate SocketIO
+
 
 # Workflow on Trello:
 https://trello.com/invite/b/xeBeVRpr/d5075484bda28ab8f18efc44f4fa5860/sei-chat-party
