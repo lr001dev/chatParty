@@ -12,24 +12,6 @@ router.get(`/`, (req,res) => {
     }
 })
 
-//Edit Show Route For Authenticated Users
-router.get(`/:userName/edit`, (req,res) => {
-  if(req.session.currentUser) {
-    console.log(req.session.currentUser)
-    if(req.params.userName === req.session.currentUser.userName) {
-      User.findById(req.params.id, (err, foundUser) => {
-        res.render(`users/edit.ejs`, {
-          currentUser: foundUser
-        })
-      })
-    } else {
-      res.redirect(`/members`)
-    }
-  } else {
-    res.redirect(`/log-in`)
-  }
-})
-
 //Create New User
 router.post(`/`, (req,res) => {
   //Setting Password Encryption

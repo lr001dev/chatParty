@@ -30,6 +30,7 @@ router.get(`/:userName`, (req,res) => {
 router.get(`/:userName/edit`, (req,res) => {
   if(req.session.currentUser) {
     if(req.params.userName === req.session.currentUser.userName) {
+      console.log(req.session.currentUser._id)
       res.render(`users/edit.ejs`, {
         currentUser: req.session.currentUser
       })
@@ -41,22 +42,12 @@ router.get(`/:userName/edit`, (req,res) => {
   }
 })
 
-// //Edit Show Route For Authenticated Users
-// router.get(`/:userName/edit`, (req,res) => {
-//   if(req.session.currentUser) {
-//     console.log(req.session.currentUser)
-//     if(req.params.userName === req.session.currentUser.userName) {
-//       User.findById(req.params.id, (err, foundUser) => {
-//         res.render(`users/edit.ejs`, {
-//           currentUser: foundUser
-//         })
-//       })
-//     } else {
-//       res.redirect(`/members`)
-//     }
-//   } else {
-//     res.redirect(`/log-in`)
-//   }
-// })
+router.put(`/:id`, (req,res) => {
+  User.findByIdAndUpdate(req.params.id, req.body, { new: true},
+    (err, updatedUser) => {
+    console.log(`Updated user: ${ updatedUser }`)
+    res.redirect(`/members/${ req.session.currentUser.userName }`)
+  })
+})
 
 module.exports = router
