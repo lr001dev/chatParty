@@ -30,4 +30,6 @@ router.delete(`/`, (req,res) => {
     res.redirect('/log-in')
   })
 })
+
+//Export route to server.js
 module.exports = router

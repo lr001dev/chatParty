@@ -51,4 +51,5 @@ router.put(`/:id`, (req,res) => {
   })
 })
 
+//Export route to server.js
 module.exports = router

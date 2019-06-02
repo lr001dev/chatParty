@@ -23,7 +23,5 @@ router.post(`/`, (req,res) => {
   })
 })
 
-
-
 //Export route to server.js
 module.exports = router
