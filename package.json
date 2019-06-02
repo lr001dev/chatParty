@@ -1,0 +1,30 @@
+{
+  "name": "chatparty",
+  "version": "1.0.0",
+  "description": "Chat Party is live chat application that allows users to create their own chat rooms. Create a chat room and invite users to participate.",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.5.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lr001dev/chatParty.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lr001dev/chatParty/issues"
+  },
+  "homepage": "https://github.com/lr001dev/chatParty#readme"
+}
