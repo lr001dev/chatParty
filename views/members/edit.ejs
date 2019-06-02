@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <% include ../partials/head.ejs %>
   </head>
   <body>
-    <h1>Update My Profile</h1>
-    <form class="" action="/members/<%=currentUser._id%>?_method=PUT" method="POST">
-      <input type="text" name="userName" placeholder="username" value="<%= currentUser.userName %>">
-      <input type="hidden" name="password" placeholder="password" value="<%= currentUser.password %>">
-      <input type="text" name="firstName" placeholder="first name" value="<%= currentUser.firstName %>">
-      <input type="text" name="img" placeholder="photo url" value="<%= currentUser.img %>">
-      <input type="text" name="bio" placeholder="bio" value="<%= currentUser.bio %>">
-      <input type="submit" name="" value="SUBMIT">
-    </form>
+    <header>
+      <nav>
+        <% include ../partials/nav.ejs %>
+      </nav>
+    </header>
+    <main>
+
+      <div class="container">
+        <h1>Update Profile</h1>
+        <div class="class="">
+          <form action="/members/<%=currentUser._id%>?_method=PUT" method="POST">
+            <div class="form-group">
+              <label for="username">Name</label>
+              <input class="form-control" name="userName" id="username" type="text" value="<%= currentUser.userName %>">
+            </div>
+            <div class="form-group">
+              <label for="pass">Password</label>
+              <input class="form-control" name="password" id="pass" type="hidden" value="<%= currentUser.password %>">
+            </div>
+            <div class="form-group">
+              <label for="firstname">First Name</label>
+              <input class="form-control" name="firstName" id="firstname" type="text" value="<%= currentUser.firstName %>">
+            </div>
+            <div class="form-group">
+              <label for="image">Image</label>
+              <input class="form-control" name="img" id="image" type="text" value="<%= currentUser.img %>">
+            </div>
+            <div class="form-group">
+              <label for="mybio">My Bio</label>
+              <input class="form-control" name="bio" id="mybio" type="text" value="<%= currentUser.bio %>">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Profile</button>
+          </form>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

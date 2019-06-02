@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <% include ../partials/head.ejs %>
   </head>
   <body>
-    <h1>My Profile</h1>
+    <header>
+      <nav>
+        <% include ../partials/nav.ejs %>
+      </nav>
+    </header>
+    <main>
+      <div class="jumbotron">
+        <h1 class="display-4">Hello, <%= currentUser.firstName %></h1>
+        <p class="lead">About Me:</p>
+          <p class="lead"><%= currentUser.bio %></p>
+        <hr class="my-4">
+        <p></p>
+        <form action="/log-in?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-primary btn-lg" role="button">Log Out</button>
+        </form>
+        <a class="btn btn-primary btn-lg" href="/members/<%= currentUser.userName %>/edit" role="button">Edit Profile</a>
+      </div>
+    </main>
   </body>
 </html>

@@ -30,7 +30,7 @@ router.get(`/:userName`, (req,res) => {
 router.get(`/:userName/edit`, (req,res) => {
   if(req.session.currentUser) {
     if(req.params.userName === req.session.currentUser.userName) {
-      console.log(req.session.currentUser._id)
+      // console.log(req.session.currentUser._id)
       res.render(`members/edit.ejs`, {
         currentUser: req.session.currentUser
       })
@@ -44,6 +44,11 @@ router.get(`/:userName/edit`, (req,res) => {
 
 //Update Profile For Authenticated Members
 router.put(`/:id`, (req,res) => {
+
+  req.session.currentUser.firstName = req.body.firstName
+  req.session.currentUser.img = req.body.img
+  req.session.currentUser.bio = req.body.bio
+
   Member.findByIdAndUpdate(req.params.id, req.body, { new: true},
     (err, updatedUser) => {
     console.log(`Updated user: ${ updatedUser }`)
