@@ -13,6 +13,7 @@ const app = express()
 //Configuration
 const port = process.env.PORT
 const mongoURI = process.env.MONGO_URI
+const sesssionSecret = process.env.SECRET
 
 //Mogoose Setup
 const mongoose = require(`mongoose`)
@@ -24,7 +25,7 @@ const session = require(`express-session`)
 const methodOverride = require(`method-override`)
 
 //Importing Our Controllers
-const usersController = require(`./controllers/users.js`)
+const usersController = require(`./controllers/createUsers.js`)
 const sessionsController = require(`./controllers/sessions.js`)
 const profilesController = require(`./controllers/profiles.js`)
 
@@ -45,7 +46,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(methodOverride(`_method`))
 app.use(session({
-  secret: `realTmecomms`,
+  secret: sesssionSecret,
   resave: false,
   saveUninitialized: false
 }))

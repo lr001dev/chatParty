@@ -11,7 +11,7 @@ router.get(`/`, (req,res) => {
   }
 })
 
-//Show My Profile To Authenticated Member Only
+//Show Profile To Authenticated Member Only
 router.get(`/:userName`, (req,res) => {
   if(req.session.currentUser) {
     if(req.params.userName === req.session.currentUser.userName) {
@@ -26,7 +26,7 @@ router.get(`/:userName`, (req,res) => {
    }
 })
 
-//Edit Show Route For Authenticated Users
+//Show Edit Profile For Authenticated Members
 router.get(`/:userName/edit`, (req,res) => {
   if(req.session.currentUser) {
     if(req.params.userName === req.session.currentUser.userName) {
@@ -42,6 +42,7 @@ router.get(`/:userName/edit`, (req,res) => {
   }
 })
 
+//Update Profile For Authenticated Members
 router.put(`/:id`, (req,res) => {
   User.findByIdAndUpdate(req.params.id, req.body, { new: true},
     (err, updatedUser) => {
