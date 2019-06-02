@@ -20,4 +20,10 @@ router.post(`/`, (req,res) => {
   })
 })
 
+//Delete Current Authenticated Session Log Out
+router.delete(`/`, (req,res) => {
+  req.session.destroy(() => {
+    res.redirect('/log-in')
+  })
+})
 module.exports = router
