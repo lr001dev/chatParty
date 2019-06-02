@@ -10,8 +10,9 @@ require(`dotenv`).config()
 const express = require(`express`)
 const app = express()
 
-//Port Number Setup
+//Configuration
 const port = process.env.PORT
+const mongoURI = process.env.MONGO_URI
 
 //Mogoose Setup
 const mongoose = require(`mongoose`)
@@ -21,6 +22,15 @@ const methodOverride = require(`method-override`)
 
 //Importing Our Controllers
 const usersController = require(`./controllers/users.js`)
+
+//////////////////////////////////
+//// Connecting To Database //////
+/////////////////////////////////
+
+mongoose.connect(mongoURI, { useNewUrlParser: true })
+mongoose.connection.once(`open`, () => {
+  console.log(`You are connected to MongoDB, Hello!`)
+})
 
 ///////////////////////
 //// Middleware //////
