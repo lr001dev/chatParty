@@ -10,11 +10,13 @@ router.get(`/`, (req,res) => {
 
 //Create New User
 router.post(`/`, (req,res) => {
-  
   //Setting Password Encryption
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
-  console.log(req.body)
-  res.redirect(`/`)
+  // console.log(req.body)
+  User.create(req.body, (err, createdUser) => {
+    console.log(`Create new user ${ createdUser }`)
+    res.redirect(`/log-in`)
+  })
 })
 
 //Export route to server.js

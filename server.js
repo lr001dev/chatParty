@@ -17,11 +17,15 @@ const mongoURI = process.env.MONGO_URI
 //Mogoose Setup
 const mongoose = require(`mongoose`)
 
+//Sessions Express Setup
+const session = require(`express-session`)
+
 //Middleware Declaration for PUT & DELETE Routes
 const methodOverride = require(`method-override`)
 
 //Importing Our Controllers
 const usersController = require(`./controllers/users.js`)
+const sessionsController = require(`./controllers/sessions.js`)
 
 //////////////////////////////////
 //// Connecting To Database //////
@@ -39,12 +43,18 @@ mongoose.connection.once(`open`, () => {
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(methodOverride(`_method`))
+app.use(session({
+  secret: `realTmecomms`,
+  resave: false,
+  saveUninitialized: false
+}))
 
 /////////////////////////////////
 //// Paths To Controllers //////
 ///////////////////////////////
 
 app.use(`/create-account`, usersController)
+app.use(`/log-in`, sessionsController)
 
 ////////////////////////
 //// Index Route //////
