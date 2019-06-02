@@ -44,7 +44,7 @@ router.get(`/:userName/edit`, (req,res) => {
 
 //Update Profile For Authenticated Members
 router.put(`/:id`, (req,res) => {
-  User.findByIdAndUpdate(req.params.id, req.body, { new: true},
+  Member.findByIdAndUpdate(req.params.id, req.body, { new: true},
     (err, updatedUser) => {
     console.log(`Updated user: ${ updatedUser }`)
     res.redirect(`/members/${ req.session.currentUser.userName }`)

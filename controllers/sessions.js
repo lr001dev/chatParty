@@ -3,14 +3,18 @@ const router = express.Router() //Grab Router Method From Express
 const Member = require(`../models/members.js`) //Require User Model
 const bcrypt = require(`bcrypt`) //Require Hash & Salt Password Encryption
 
-//Log In Route
+//Log In Route For Non Authenticated Members
 router.get(`/`, (req,res) => {
-  res.render(`sessions/new.ejs`)
+  if(req.session.currentUser) {
+    res.redirect(`/members/${ req.session.currentUser.userName }`)
+  } else {
+        res.render(`sessions/new.ejs`)
+    }
 })
 
 //Authenticating Password Then Redirect
 router.post(`/`, (req,res) => {
-  User.findOne({ userName: req.body.userName }, (err, foundUser) => {
+  Member.findOne({ userName: req.body.userName }, (err, foundUser) => {
     if(bcrypt.compareSync(req.body.password, foundUser.password)) {
       req.session.currentUser = foundUser
       res.redirect(`/members/${ req.session.currentUser.userName }`)
