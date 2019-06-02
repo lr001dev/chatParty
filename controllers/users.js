@@ -8,6 +8,7 @@ router.get(`/`, (req,res) => {
 })
 
 router.post(`/`, (req,res) => {
+  req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
   console.log(req.body)
   res.redirect(`/`)
 })
