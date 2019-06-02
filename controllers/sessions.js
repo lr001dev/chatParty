@@ -10,10 +10,10 @@ router.get(`/`, (req,res) => {
 
 //Authenticating Password Then Redirect
 router.post(`/`, (req,res) => {
-  User.findone({ username: req.body.username }, (err, foundUser) => {
+  User.findOne({ userName: req.body.userName }, (err, foundUser) => {
     if(bcrypt.compareSync(req.body.password, foundUser.password)) {
       req.session.currentUser = foundUser
-      res.redirect(`/`)
+      res.redirect(`/members/${ req.session.currentUser.userName }`)
     } else {
       res.send(`wrong password`)
     }

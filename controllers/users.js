@@ -3,9 +3,13 @@ const router = express.Router() //Grab Router Method From Express
 const User = require(`../models/users.js`) //Require User Model
 const bcrypt = require(`bcrypt`) //Require Hash & Salt Password Encryption
 
-//Create Route Show Route
+//New User Route Show Route
 router.get(`/`, (req,res) => {
-  res.render(`users/new.ejs`)
+  if(req.session.currentUser) {
+    res.redirect(`/members/${ req.session.currentUser.userName }`)
+  } else {
+        res.render(`users/new.ejs`)
+    }
 })
 
 //Create New User

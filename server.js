@@ -26,6 +26,7 @@ const methodOverride = require(`method-override`)
 //Importing Our Controllers
 const usersController = require(`./controllers/users.js`)
 const sessionsController = require(`./controllers/sessions.js`)
+const profilesController = require(`./controllers/profiles.js`)
 
 //////////////////////////////////
 //// Connecting To Database //////
@@ -55,6 +56,7 @@ app.use(session({
 
 app.use(`/create-account`, usersController)
 app.use(`/log-in`, sessionsController)
+app.use(`/members`, profilesController)
 
 ////////////////////////
 //// Index Route //////
