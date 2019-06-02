@@ -25,9 +25,9 @@ const session = require(`express-session`)
 const methodOverride = require(`method-override`)
 
 //Importing Our Controllers
-const usersController = require(`./controllers/createUsers.js`)
+const createMembersController = require(`./controllers/createMembers.js`)
 const sessionsController = require(`./controllers/sessions.js`)
-const profilesController = require(`./controllers/profiles.js`)
+const membersController = require(`./controllers/members.js`)
 
 //////////////////////////////////
 //// Connecting To Database //////
@@ -55,9 +55,9 @@ app.use(session({
 //// Paths To Controllers //////
 ///////////////////////////////
 
-app.use(`/create-account`, usersController)
+app.use(`/create-account`, createMembersController)
 app.use(`/log-in`, sessionsController)
-app.use(`/members`, profilesController)
+app.use(`/members`, membersController)
 
 ////////////////////////
 //// Index Route //////

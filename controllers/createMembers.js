@@ -1,6 +1,6 @@
 const express = require(`express`) // Require Express
 const router = express.Router() //Grab Router Method From Express
-const User = require(`../models/users.js`) //Require User Model
+const Member = require(`../models/members.js`) //Require User Model
 const bcrypt = require(`bcrypt`) //Require Hash & Salt Password Encryption
 
 //New User Route Show Route
@@ -8,7 +8,7 @@ router.get(`/`, (req,res) => {
   if(req.session.currentUser) {
     res.redirect(`/members/${ req.session.currentUser.userName }`)
   } else {
-        res.render(`users/new.ejs`)
+        res.render(`members/new.ejs`)
     }
 })
 
