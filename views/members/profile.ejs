@@ -19,41 +19,35 @@
             <p></p>
           </div>
           <a class="btn btn-primary btn-lg btn-block" href="/party-rooms/create" role="button">Create Party Room</a>
+          <div class="table-responsive">
           <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Chat Room Name</th>
+                <th scope="col">Room Name</th>
+                <th scope="col">Description</th>
                 <th scope="col">Visit</th>
                 <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
+              <% foundUser.rooms.forEach((partyRoom, index)=> { %>
+                <tr>
+                <th scope="row"><%= index %></th>
+                <td><%=partyRoom.roomName%></td>
+                <td><%=partyRoom.description%></td>
+                </tr>
+              <% }) %>
             </tbody>
           </table>
+        </div>
           <form action="/log-in?_method=DELETE" method="POST">
             <button type="submit" class="btn btn-primary btn-lg" role="button">Log Out</button>
           </form>
           <a class="btn btn-primary btn-lg" href="/members/<%= foundUser.userName %>/edit" role="button">Edit Profile</a>
         </div>
+        <a class="btn btn-primary btn-lg btn-block" href="/party-rooms/" role="button">View All Chat Rooms</a>
     </main>
   </body>
 </html>

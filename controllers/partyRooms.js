@@ -5,7 +5,16 @@ const Member = require(`../models/members.js`)
 
 //Show All Party Rooms
 router.get(`/`, (req,res) => {
-  res.render(`partyRooms/index.ejs`)
+  if(req.session.currentUser) {
+    PartyRoom.find({}, (err, allPartyRooms) => {
+      res.render(`partyRooms/index.ejs`, {
+        partyRooms: allPartyRooms,
+        currentUser: req.session.currentUser
+      })
+    })
+  } else {
+    res.redirect(`/log-in`)
+  }
 })
 
 //New Party Room Show Route

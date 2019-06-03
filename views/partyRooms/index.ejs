@@ -1,10 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <% include ../partials/head.ejs %>
   </head>
   <body>
-    <h1>Hello Party Rooms</h1>
+    <header>
+      <nav>
+        <% include ../partials/nav.ejs %>
+      </nav>
+    </header>
+    <main class="container-fluid">
+      <div class="border rounded">
+        <div class="jumbotron">
+          <h1 class="display-4">Browse Party Rooms</h1>
+          <p class="lead"></p>
+            <p class="lead"></p>
+            <hr class="my-4">
+            <p></p>
+          </div>
+          <a class="btn btn-primary btn-lg btn-block" href="/party-rooms/create" role="button">Create Party Room</a>
+          <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Room Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Visit</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% partyRooms.forEach((partyRoom, index)=> { %>
+                <tr>
+                <th scope="row"><%= index %></th>
+                <td><%=partyRoom.roomName%></td>
+                <td><%=partyRoom.description%></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+          <form action="/log-in?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-primary btn-lg" role="button">Log Out</button>
+          </form>
+        </div>
+    </main>
   </body>
 </html>
