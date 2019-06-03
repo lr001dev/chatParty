@@ -11,15 +11,15 @@
           <form action="/create-account" method="POST">
             <div class="form-group">
               <label for="username">Name</label>
-              <input class="form-control" name="userName" id="username" type="text" value="<%= currentUser.userName %>">
+              <input class="form-control" name="userName" id="username" type="text" value="">
             </div>
             <div class="form-group">
               <label for="pass">Password</label>
-              <input class="form-control" name="password" id="pass" type="hidden" value="<%= currentUser.password %>">
+              <input class="form-control" name="password" id="pass" type="text" value="">
             </div>
             <div class="form-group">
               <label for="firstname">First Name</label>
-              <input class="form-control" name="firstName" id="firstname" type="text" value="<%= currentUser.firstName %>">
+              <input class="form-control" name="firstName" id="firstname" type="text" value="">
             </div>
             <button type="submit" class="btn btn-primary">Create Account</button>
           </form>

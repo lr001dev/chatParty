@@ -15,8 +15,12 @@ router.get(`/`, (req,res) => {
 router.get(`/:userName`, (req,res) => {
   if(req.session.currentUser) {
     if(req.params.userName === req.session.currentUser.userName) {
-      res.render(`members/profile.ejs`, {
-        currentUser: req.session.currentUser
+      Member.findOne({ userName: req.params.userName}, (err, foundUser) => {
+        console.log(`Found User ${ foundUser }`)
+        res.render(`members/profile.ejs`, {
+          currentUser: req.session.currentUser,
+          foundUser: foundUser
+        })
       })
     } else {
           res.redirect(`/members`)

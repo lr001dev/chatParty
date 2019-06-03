@@ -8,7 +8,7 @@ const Schema = mongoose.Schema
 const partyroomSchema = new Schema({
   roomName: { type: String, require: true },
   nameSpace: { type: String, require: true },
-  firstName: { type: String, require: true },
+  creator: { type: String, require: true },
   img: String,
   description: String
 })

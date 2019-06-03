@@ -12,13 +12,13 @@
     <main class="container-fluid">
       <div class="border rounded">
         <div class="jumbotron">
-          <h1 class="display-4">Hello, <%= currentUser.firstName %></h1>
+          <h1 class="display-4">Hello, <%= foundUser.firstName %></h1>
           <p class="lead">About Me:</p>
-            <p class="lead"><%= currentUser.bio %></p>
+            <p class="lead"><%= foundUser.bio %></p>
             <hr class="my-4">
             <p></p>
           </div>
-          <button type="button" class="btn btn-primary btn-lg btn-block">Create Chat Room</button><br>
+          <a class="btn btn-primary btn-lg btn-block" href="/party-rooms/create" role="button">Create Party Room</a>
           <table class="table">
             <thead>
               <tr>
@@ -52,7 +52,7 @@
           <form action="/log-in?_method=DELETE" method="POST">
             <button type="submit" class="btn btn-primary btn-lg" role="button">Log Out</button>
           </form>
-          <a class="btn btn-primary btn-lg" href="/members/<%= currentUser.userName %>/edit" role="button">Edit Profile</a>
+          <a class="btn btn-primary btn-lg" href="/members/<%= foundUser.userName %>/edit" role="button">Edit Profile</a>
         </div>
     </main>
   </body>
