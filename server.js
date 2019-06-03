@@ -59,7 +59,7 @@ app.use(session({
 app.use(`/create-account`, createMembersController)
 app.use(`/log-in`, sessionsController)
 app.use(`/members`, membersController)
-app.use(`/partyRoomsController`, membersController)
+app.use(`/party-rooms`, partyRoomsController)
 
 ////////////////////////
 //// Index Route //////
