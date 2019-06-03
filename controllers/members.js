@@ -15,17 +15,6 @@ router.get(`/`, (req,res) => {
 router.get(`/:userName`, (req,res) => {
   if(req.session.currentUser) {
     if(req.params.userName === req.session.currentUser.userName) {
-      // Member.findOne({ userName: req.params.userName}, (err, foundUser) => {
-      //
-      //   console.log(`Found User ${ foundUser }`)
-      //
-      //
-      //   res.render(`members/profile.ejs`, {
-      //     currentUser: req.session.currentUser,
-      //     foundUser: foundUser
-      //   })
-      // })
-
         Member.aggregate([{ $lookup:
           {
             from: "partyrooms",
@@ -40,7 +29,6 @@ router.get(`/:userName`, (req,res) => {
             currentUser: req.session.currentUser,
             foundUser: foundMember[0]
           })
-        // res.send(foundMember[0])
       })
     } else {
           res.redirect(`/members`)

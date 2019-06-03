@@ -28,6 +28,14 @@ router.get(`/create`, (req,res) => {
   }
 })
 
+router.get(`/:id/edit`, (req,res) => {
+    PartyRoom.findById(req.params.id, (err, foundPartyRoom) => {
+      res.render(`partyRooms/edit.ejs`, {
+        partyRoom: foundPartyRoom
+      })
+    })
+})
+
 //Create New Party Rooms
 router.post(`/`, (req,res) => {
   PartyRoom.create(req.body, (err, partyRoom) => {
@@ -39,5 +47,7 @@ router.post(`/`, (req,res) => {
     res.redirect(`/members/${ req.session.currentUser.userName }`)
   })
 })
+
+
 
 module.exports = router
