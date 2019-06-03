@@ -28,6 +28,7 @@ const methodOverride = require(`method-override`)
 const createMembersController = require(`./controllers/createMembers.js`)
 const sessionsController = require(`./controllers/sessions.js`)
 const membersController = require(`./controllers/members.js`)
+const partyRoomsController = require(`./controllers/partyRooms.js`)
 
 //////////////////////////////////
 //// Connecting To Database //////
@@ -58,6 +59,7 @@ app.use(session({
 app.use(`/create-account`, createMembersController)
 app.use(`/log-in`, sessionsController)
 app.use(`/members`, membersController)
+app.use(`/partyRoomsController`, membersController)
 
 ////////////////////////
 //// Index Route //////
