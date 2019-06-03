@@ -9,11 +9,14 @@
         <% include ../partials/nav.ejs %>
       </nav>
     </header>
-    <main>
-
-      <div class="container">
-        <h1>Update Profile</h1>
-        <div class="class="">
+    <main class="container-fluid">
+      <div class="jumbotron">
+        <h1 class="display-4">Update Profile</h1>
+        <p class="lead"></p>
+          <p class="lead"></p>
+          <hr class="my-4">
+          <p></p>
+        </div>
           <form action="/members/<%=currentUser._id%>?_method=PUT" method="POST">
             <div class="form-group">
               <label for="username">Name</label>
@@ -37,8 +40,6 @@
             </div>
             <button type="submit" class="btn btn-primary">Update Profile</button>
           </form>
-        </div>
-      </div>
     </main>
   </body>
 </html>

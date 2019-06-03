@@ -9,18 +9,51 @@
         <% include ../partials/nav.ejs %>
       </nav>
     </header>
-    <main>
-      <div class="jumbotron">
-        <h1 class="display-4">Hello, <%= currentUser.firstName %></h1>
-        <p class="lead">About Me:</p>
-          <p class="lead"><%= currentUser.bio %></p>
-        <hr class="my-4">
-        <p></p>
-        <form action="/log-in?_method=DELETE" method="POST">
-          <button type="submit" class="btn btn-primary btn-lg" role="button">Log Out</button>
-        </form>
-        <a class="btn btn-primary btn-lg" href="/members/<%= currentUser.userName %>/edit" role="button">Edit Profile</a>
-      </div>
+    <main class="container-fluid">
+      <div class="border rounded">
+        <div class="jumbotron">
+          <h1 class="display-4">Hello, <%= currentUser.firstName %></h1>
+          <p class="lead">About Me:</p>
+            <p class="lead"><%= currentUser.bio %></p>
+            <hr class="my-4">
+            <p></p>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg btn-block">Create Chat Room</button><br>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Chat Room Name</th>
+                <th scope="col">Visit</th>
+                <th scope="col">Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+          <form action="/log-in?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-primary btn-lg" role="button">Log Out</button>
+          </form>
+          <a class="btn btn-primary btn-lg" href="/members/<%= currentUser.userName %>/edit" role="button">Edit Profile</a>
+        </div>
     </main>
   </body>
 </html>
