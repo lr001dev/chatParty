@@ -14,6 +14,14 @@
     </style>
   </head>
   <body>
+    <script>
+      const room = `<%= roomName %>`
+      //Receiving message back from Server
+      socket.on('connect', function() {
+       // Connected, let's sign-up for to receive messages for this room
+       socket.emit('room', room);
+     })
+    </script>
     <ul id="messages"></ul>
     <form id="chat" action="">
       <input id="m" autocomplete="off" /><button>Send</button>

@@ -17,8 +17,16 @@ router.get(`/`, (req,res) => {
   }
 })
 
-router.get(`/party`, (req,res) => {
-  res.render(`partyRooms/partyRoom.ejs`)
+router.get(`/party/:nameSpace`, (req,res) => {
+  if(req.session.currentUser) {
+
+    res.render(`partyRooms/partyRoom.ejs`, {
+      roomName: req.params.nameSpace,
+      currentUser: req.session.currentUser
+    })
+  } else {
+    res.redirect(`/log-in`)
+  }
 })
 
 //New Party Room Show Route

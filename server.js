@@ -80,14 +80,25 @@ app.get(`/`, (req,res) => {
 //// Listening To Server //////
 //////////////////////////////
 
+//Enabling socket io connection listener
 io.on(`connection`, (socket) => {
   console.log(`A user connected`)
   socket.on('disconnect', function(){
     console.log('user disconnected')
   })
-  socket.on(`chat message`, (msg) => {
+  //Listening for room connections sent by client.js
+  socket.on(`room`, (room) => {
+    socket.join(room)
+    console.log(`User joined: ${ room }`)
+  })
+  //Trasmiting message back to socket connections inside unique room
+  socket.on(`chat message`, (msg,room) => {
+    //Lets Check to see if server is receiving message from client.js
     console.log(`this message was sent: ${ msg }`)
-    io.emit(`chat message`, msg)
+    //Lets Check to see if server is receiving room name from client.js
+    console.log(`the room is: ${ room }`)
+    //Send message back to room that message was sent from
+    io.to(room).emit(`chat message`, msg)
   })
 })
 
