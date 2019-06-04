@@ -39,6 +39,9 @@
                 <td><%=partyRoom.description%></td>
                 <td><a href="/party-rooms/<%=partyRoom._id%>/edit">Visit</a></td>
                 <td><a href="/party-rooms/<%=partyRoom._id%>/edit">Edit</a></td>
+                <td>  <form action="/party-rooms/<%= partyRoom._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-primary btn-sm" role="button">Delete</button>
+                  </form></td>
                 </tr>
               <% }) %>
             </tbody>

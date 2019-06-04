@@ -61,4 +61,10 @@ router.put(`/:id`, (req,res) => {
   })
 })
 
+router.delete(`/:id`, (req,res) => {
+  PartyRoom.findByIdAndRemove(req.params.id, (error, foundPartyRoom) => {
+    res.redirect(`/members/${ req.session.currentUser.userName }`)
+  })
+})
+
 module.exports = router
