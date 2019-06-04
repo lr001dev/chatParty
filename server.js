@@ -9,7 +9,12 @@ require(`dotenv`).config()
 //Express Setup
 const express = require(`express`)
 const app = express()
+
+//We are creating sever instance manually for socketio integration
 const http = require(`http`).createServer(app)
+
+//Socket IO Setup
+const io = require(`socket.io`)(http)
 
 //Configuration
 const port = process.env.PORT
@@ -52,6 +57,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }))
+app.use(express.static(`public`))
 
 /////////////////////////////////
 //// Paths To Controllers //////
@@ -73,6 +79,13 @@ app.get(`/`, (req,res) => {
 ////////////////////////////////
 //// Listening To Server //////
 //////////////////////////////
+
+io.on(`connection`, (socket) => {
+  console.log(`A user connected`)
+  socket.on('disconnect', function(){
+    console.log('user disconnected')
+  })
+})
 
 http.listen(port, () => {
   console.log(`I'm listening to port ${ port }`)
