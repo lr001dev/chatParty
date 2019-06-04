@@ -85,6 +85,9 @@ io.on(`connection`, (socket) => {
   socket.on('disconnect', function(){
     console.log('user disconnected')
   })
+  socket.on(`chat message`, (msg) => {
+    console.log(`this message was sent: ${ msg }`)
+  })
 })
 
 http.listen(port, () => {
