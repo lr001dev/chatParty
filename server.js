@@ -9,6 +9,7 @@ require(`dotenv`).config()
 //Express Setup
 const express = require(`express`)
 const app = express()
+const http = require(`http`).createServer(app)
 
 //Configuration
 const port = process.env.PORT
@@ -73,6 +74,6 @@ app.get(`/`, (req,res) => {
 //// Listening To Server //////
 //////////////////////////////
 
-app.listen(port, () => {
+http.listen(port, () => {
   console.log(`I'm listening to port ${ port }`)
 })

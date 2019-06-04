@@ -29,11 +29,16 @@ router.get(`/create`, (req,res) => {
 })
 
 router.get(`/:id/edit`, (req,res) => {
+  if(req.session.currentUser) {
     PartyRoom.findById(req.params.id, (err, foundPartyRoom) => {
       res.render(`partyRooms/edit.ejs`, {
-        partyRoom: foundPartyRoom
+        partyRoom: foundPartyRoom,
+        currentUser: req.session.currentUser
       })
     })
+  } else {
+    res.redirect(`/log-in`)
+  }
 })
 
 //Create New Party Rooms
@@ -48,6 +53,12 @@ router.post(`/`, (req,res) => {
   })
 })
 
-
+router.put(`/:id`, (req,res) => {
+  PartyRoom.findByIdAndUpdate(req.params.id, req.body, { new: true},
+    (err, updatedRoom) => {
+    console.log(`Updated room: ${ updatedRoom}`)
+    res.redirect(`/members/${ req.session.currentUser.userName }`)
+  })
+})
 
 module.exports = router

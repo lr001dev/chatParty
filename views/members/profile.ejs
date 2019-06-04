@@ -37,6 +37,8 @@
                 <th scope="row"><%= index %></th>
                 <td><%=partyRoom.roomName%></td>
                 <td><%=partyRoom.description%></td>
+                <td><a href="/party-rooms/<%=partyRoom._id%>/edit">Visit</a></td>
+                <td><a href="/party-rooms/<%=partyRoom._id%>/edit">Edit</a></td>
                 </tr>
               <% }) %>
             </tbody>
