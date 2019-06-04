@@ -17,6 +17,10 @@ router.get(`/`, (req,res) => {
   }
 })
 
+router.get(`/party`, (req,res) => {
+  res.render(`partyRooms/partyRoom.ejs`)
+})
+
 //New Party Room Show Route
 router.get(`/create`, (req,res) => {
   if(req.session.currentUser) {
