@@ -2,21 +2,6 @@ console.log(`loaded client js`)
 //Define varaible to envoke socket
 const socket = io()
 
-// const room = 'test'
-// //Receiving message back from Server
-// socket.on('connect', function() {
-//  // Connected, let's sign-up for to receive messages for this room
-//  socket.emit('room', room);
-// })
-
-// <script>
-//   const room = `<%= roomName %>`
-//   //Receiving message back from Server
-//   socket.on('connect', function() {
-//    // Connected, let's sign-up for to receive messages for this room
-//    socket.emit('room', room);
-//  }) </script>
-
 $(() => {
 
   //Lets send a message to server
