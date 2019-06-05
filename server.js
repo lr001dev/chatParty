@@ -35,6 +35,7 @@ const createMembersController = require(`./controllers/createMembers.js`)
 const sessionsController = require(`./controllers/sessions.js`)
 const membersController = require(`./controllers/members.js`)
 const partyRoomsController = require(`./controllers/partyRooms.js`)
+const picturesController = require(`./controllers/pictures.js`)
 
 //////////////////////////////////
 //// Connecting To Database //////
@@ -58,7 +59,7 @@ app.use(session({
   saveUninitialized: false
 }))
 app.use(express.static(`public`))
-
+app.use(`/uploads`, express.static(`uploads`))
 /////////////////////////////////
 //// Paths To Controllers //////
 ///////////////////////////////
@@ -67,6 +68,8 @@ app.use(`/create-account`, createMembersController)
 app.use(`/log-in`, sessionsController)
 app.use(`/members`, membersController)
 app.use(`/party-rooms`, partyRoomsController)
+app.use(`/pictures/`, picturesController)
+
 
 ////////////////////////
 //// Index Route //////

@@ -11,17 +11,22 @@
     </header>
     <main class="container-fluid">
       <div class="border rounded">
-        <div class="jumbotron">
+        <div class="jumbotron bg-white">
+          <div class="float-right">
+            <img width="150px" class="img-thumbnail rounded" src="/<%= foundUser.img %>" alt=""></br>
+            <a class="btn btn-secondary btn-sm" href="/pictures/" role="button">Change Photo</a>
+          </div></br>
           <h1 class="display-4">Hello, <%= foundUser.firstName %></h1>
           <p class="lead">About Me:</p>
             <p class="lead"><%= foundUser.bio %></p>
             <hr class="my-4">
+
             <a class="btn btn-secondary btn-lg" href="/members/<%= foundUser.userName %>/edit" role="button">Edit Profile</a>
             <!-- <p></p> -->
           </div>
           <a class="btn btn-primary btn-lg btn-block" href="/party-rooms/create" role="button">Create Party Room</a>
           <div class="table-responsive">
-          <table class="table">
+          <table class="table table-light">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -48,7 +53,7 @@
               </tbody>
             </table>
           </div>
-            <a class="btn btn-outline-primary btn-block" href="/party-rooms/" role="button">View All Chat Rooms</a>
+            <a class="btn btn-light btn-block" href="/party-rooms/" role="button">View All Chat Rooms</a>
         </div>
     </main>
   </body>

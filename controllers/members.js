@@ -57,9 +57,9 @@ router.get(`/:userName/edit`, (req,res) => {
 //Update Profile For Authenticated Members
 router.put(`/:id`, (req,res) => {
 
-  req.session.currentUser.firstName = req.body.firstName
-  req.session.currentUser.img = req.body.img
-  req.session.currentUser.bio = req.body.bio
+  // req.session.currentUser.firstName = req.body.firstName
+  // req.session.currentUser.img = req.body.img
+  // req.session.currentUser.bio = req.body.bio
 
   Member.findByIdAndUpdate(req.params.id, req.body, { new: true},
     (err, updatedUser) => {
