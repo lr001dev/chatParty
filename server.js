@@ -17,9 +17,9 @@ const http = require(`http`).createServer(app)
 const io = require(`socket.io`)(http)
 
 //Configuration
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/'+ `cparty`
-const sesssionSecret = process.env.SECRET || 3000
+const sesssionSecret = process.env.SECRET 
 
 //Mogoose Setup
 const mongoose = require(`mongoose`)
