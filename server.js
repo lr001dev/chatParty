@@ -19,7 +19,7 @@ const io = require(`socket.io`)(http)
 //Configuration
 const PORT = process.env.PORT || 3000
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/'+ `cparty`
-const sesssionSecret = process.env.SECRET 
+const sesssionSecret = process.env.SECRET
 
 //Mogoose Setup
 const mongoose = require(`mongoose`)
@@ -105,6 +105,6 @@ io.on(`connection`, (socket) => {
   })
 })
 
-http.listen(port, () => {
-  console.log(`I'm listening to port ${ port }`)
+http.listen(PORT, () => {
+  console.log(`I'm listening to port ${ PORT }`)
 })
