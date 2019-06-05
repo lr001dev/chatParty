@@ -4,6 +4,22 @@
     <% include ../partials/head.ejs %>
   </head>
   <body>
-    <h1> Welcome to Member's List</h1>
+    <header>
+      <% include ../partials/nav.ejs %>
+    </header>
+    <main>
+      <div class="container-fluid flex">
+        <% members.forEach((member, index)=> { %>
+          <div class="card" style="width: 18rem;">
+            <img src="/<%=member.img%>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=member.firstName%></h5>
+              <p class="card-text"><%=member.bio%></p>
+              <a href="/members/<%=member.userName%>" class="btn btn-primary">View <%=member.firstName%> Profile</a>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </main>
   </body>
 </html>

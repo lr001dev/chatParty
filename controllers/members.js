@@ -5,7 +5,13 @@ const Member = require(`../models/members.js`) //Require User Model
 //Show All Members Authenticated Member Only
 router.get(`/`, (req,res) => {
   if(req.session.currentUser) {
-    res.render(`members/profiles.ejs`)
+    Member.find({}, (err, allmembers) => {
+      res.render(`members/profiles.ejs`, {
+        members: allmembers,
+        currentUser: req.session.currentUser
+      })
+    })
+
   } else {
     res.redirect(`/log-in`)
   }
@@ -56,10 +62,6 @@ router.get(`/:userName/edit`, (req,res) => {
 
 //Update Profile For Authenticated Members
 router.put(`/:id`, (req,res) => {
-
-  // req.session.currentUser.firstName = req.body.firstName
-  // req.session.currentUser.img = req.body.img
-  // req.session.currentUser.bio = req.body.bio
 
   Member.findByIdAndUpdate(req.params.id, req.body, { new: true},
     (err, updatedUser) => {

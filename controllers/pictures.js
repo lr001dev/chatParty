@@ -19,11 +19,11 @@ const upload = multer({
 
 router.get(`/`, (req,res) => {
   console.log(`current user is: ` + req.session.currentUser.userName)
-  console.log(`current user idm is: ` + req.session.currentUser._id)
+  console.log(`current user id is: ` + req.session.currentUser._id)
   res.render(`pictures/upload.ejs`)
 })
 
-router.post(`/upload`, upload.single('images'), (req,res) => {
+router.post(`/upload-profile`, upload.single('images'), (req,res) => {
   console.log(req.file)
   console.log(`current user is: ` + req.session.currentUser)
   Member.findByIdAndUpdate(req.session.currentUser._id, { $set: { img: req.file.path } }, {new: true},
