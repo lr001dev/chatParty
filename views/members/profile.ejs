@@ -16,7 +16,8 @@
           <p class="lead">About Me:</p>
             <p class="lead"><%= foundUser.bio %></p>
             <hr class="my-4">
-            <p></p>
+            <a class="btn btn-secondary btn-lg" href="/members/<%= foundUser.userName %>/edit" role="button">Edit Profile</a>
+            <!-- <p></p> -->
           </div>
           <a class="btn btn-primary btn-lg btn-block" href="/party-rooms/create" role="button">Create Party Room</a>
           <div class="table-responsive">
@@ -37,22 +38,16 @@
                 <th scope="row"><%= index %></th>
                 <td><%=partyRoom.roomName%></td>
                 <td><%=partyRoom.description%></td>
-                <td><a href="/party-rooms/party/<%=partyRoom.nameSpace%>">Visit</a></td>
-                <td><a href="/party-rooms/<%=partyRoom._id%>/edit">Edit</a></td>
+                <td><a class="btn btn-success btn-sm" role="button" href="/party-rooms/party/<%=partyRoom.nameSpace%>">Visit</a></td>
+                <td><a class="btn btn-info btn-sm" role="button" href="/party-rooms/<%=partyRoom._id%>/edit">Edit</a></td>
                 <td>  <form action="/party-rooms/<%= partyRoom._id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="btn btn-primary btn-sm" role="button">Delete</button>
+                    <button type="submit" class="btn btn-warning btn-sm" role="button">Delete</button>
                   </form></td>
                 </tr>
               <% }) %>
             </tbody>
           </table>
-        </div>
-          <form action="/log-in?_method=DELETE" method="POST">
-            <button type="submit" class="btn btn-primary btn-lg" role="button">Log Out</button>
-          </form>
-          <a class="btn btn-primary btn-lg" href="/members/<%= foundUser.userName %>/edit" role="button">Edit Profile</a>
-        </div>
-        <a class="btn btn-primary btn-lg btn-block" href="/party-rooms/" role="button">View All Chat Rooms</a>
+        <a class="btn btn-outline-primary btn-block" href="/party-rooms/" role="button">View All Chat Rooms</a>
     </main>
   </body>
 </html>
