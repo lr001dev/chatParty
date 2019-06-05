@@ -77,7 +77,9 @@ app.get(`/`, (req,res) => {
   if(req.session.currentUser) {
       res.redirect(`/members/${ req.session.currentUser.userName }`)
   } else {
-    res.render(`index.ejs`)
+    res.render(`index.ejs`, {
+      currentUser: req.session.currentUser
+    })
   }
 })
 
