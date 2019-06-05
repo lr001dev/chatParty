@@ -20,37 +20,34 @@
           </div>
           <a class="btn btn-primary btn-lg btn-block" href="/party-rooms/create" role="button">Create Party Room</a>
           <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Room Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Visit</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% partyRooms.forEach((partyRoom, index)=> { %>
+            <table class="table">
+              <thead>
                 <tr>
-                <th scope="row"><%= index %></th>
-                <td><%=partyRoom.roomName%></td>
-                <td><%=partyRoom.description%></td>
-                <td><a href="/party-rooms/party/<%=partyRoom.nameSpace%>">Visit</a></td>
-                <td><a href="/party-rooms/<%=partyRoom._id%>/edit">Edit</a></td>
-                <td>  <form action="/party-rooms/<%= partyRoom._id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="btn btn-primary btn-sm" role="button">Delete</button>
-                  </form></td>
+                  <th scope="col">#</th>
+                  <th scope="col">Room Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Visit</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
                 </tr>
-              <% }) %>
-            </tbody>
-          </table>
-        </div>
-          <form action="/log-in?_method=DELETE" method="POST">
-            <button type="submit" class="btn btn-primary btn-lg" role="button">Log Out</button>
-          </form>
-        </div>
+              </thead>
+              <tbody>
+                <% partyRooms.forEach((partyRoom, index)=> { %>
+                  <tr>
+                    <th scope="row"><%= index %></th>
+                    <td><%=partyRoom.roomName%></td>
+                    <td><%=partyRoom.description%></td>
+                    <td><a class="btn btn-success btn-sm" role="button" href="/party-rooms/party/<%= partyRoom.nameSpace %>">Visit</a></td>
+                    <td><a class="btn btn-info btn-sm" role="button" href="/party-rooms/<%= partyRoom._id %>/edit">Edit</a></td>
+                    <td><form action="/party-rooms/<%= partyRoom._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-primary btn-sm" role="button">Delete</button>
+                      </form></td>
+                  </tr>
+                    <% }) %>
+              </tbody>
+            </table>
+          </div>
+      </div>
     </main>
   </body>
 </html>

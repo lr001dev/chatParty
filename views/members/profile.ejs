@@ -32,21 +32,23 @@
                 <th scope="col">Delete</th>
               </tr>
             </thead>
-            <tbody>
-              <% foundUser.rooms.forEach((partyRoom, index)=> { %>
-                <tr>
-                <th scope="row"><%= index %></th>
-                <td><%=partyRoom.roomName%></td>
-                <td><%=partyRoom.description%></td>
-                <td><a class="btn btn-success btn-sm" role="button" href="/party-rooms/party/<%=partyRoom.nameSpace%>">Visit</a></td>
-                <td><a class="btn btn-info btn-sm" role="button" href="/party-rooms/<%=partyRoom._id%>/edit">Edit</a></td>
-                <td>  <form action="/party-rooms/<%= partyRoom._id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="btn btn-warning btn-sm" role="button">Delete</button>
-                  </form></td>
-                </tr>
-              <% }) %>
-            </tbody>
-          </table>
+              <tbody>
+                <% foundUser.rooms.forEach((partyRoom, index)=> { %>
+                  <tr>
+                  <th scope="row"><%= index %></th>
+                  <td><%=partyRoom.roomName%></td>
+                  <td><%=partyRoom.description%></td>
+                  <td><a class="btn btn-success btn-sm" role="button" href="/party-rooms/party/<%=partyRoom.nameSpace%>">Visit</a></td>
+                  <td><a class="btn btn-info btn-sm" role="button" href="/party-rooms/<%=partyRoom._id%>/edit">Edit</a></td>
+                  <td>    <form action="/party-rooms/<%= partyRoom._id %>?_method=DELETE" method="POST">
+                      <button type="submit" class="btn btn-warning btn-sm" role="button">Delete</button>
+                    </form></td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
         <a class="btn btn-outline-primary btn-block" href="/party-rooms/" role="button">View All Chat Rooms</a>
     </main>
   </body>
