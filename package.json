@@ -1,6 +1,9 @@
 {
   "name": "chatparty",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.15.3"
+  },
   "description": "Chat Party is live chat application that allows users to create their own chat rooms. Create a chat room and invite users to participate.",
   "main": "server.js",
   "dependencies": {
