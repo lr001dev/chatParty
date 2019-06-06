@@ -41,3 +41,11 @@ body {
   /* background: #00c9ff; */
   /* color: white; */
 }
+.avatar {
+  display: inline-block;
+  width: 50px;
+}
+.chat-text {
+  display: inline-block;
+  padding: .5em;
+}

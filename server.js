@@ -97,18 +97,19 @@ io.on(`connection`, (socket) => {
     console.log('user disconnected')
   })
   //Listening for room connections sent by client.js
-  socket.on(`room`, (room) => {
+  socket.on(`room`, (room, userName, pic) => {
     socket.join(room)
-    console.log(`User joined: ${ room }`)
+    io.to(room).emit(`chat message`, `has joined this chat`, pic,userName)
+    console.log(`${userName} joined: ${ room } with pic ${pic}`)
   })
   //Trasmiting message back to socket connections inside unique room
-  socket.on(`chat message`, (msg,room) => {
+  socket.on(`chat message`, (msg,room,pic,userName) => {
     //Lets Check to see if server is receiving message from client.js
     console.log(`this message was sent: ${ msg }`)
     //Lets Check to see if server is receiving room name from client.js
     console.log(`the room is: ${ room }`)
     //Send message back to room that message was sent from
-    io.to(room).emit(`chat message`, msg)
+    io.to(room).emit(`chat message`, msg,pic,userName)
   })
 })
 
