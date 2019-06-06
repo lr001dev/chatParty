@@ -4,22 +4,27 @@
     <% include ../partials/head.ejs %>
   </head>
   <body>
+    <header>
+      <nav>
+        <% include ../partials/nav.ejs %>
+      </nav>
+    </header>
     <main>
-      <div class="container forms">
-        <h1>Create Account</h1>
-        <div>
+      <div class="container">
+        <div class="bg-white rounded forms">
+          <h1>Create Account</h1>
           <form action="/create-account" method="POST">
             <div class="form-group">
               <label for="username">Name</label>
-              <input class="form-control" name="userName" id="username" type="text" value="">
+              <input class="form-control" name="userName" id="username" type="text" value="" required>
             </div>
             <div class="form-group">
               <label for="pass">Password</label>
-              <input class="form-control" name="password" id="pass" type="text" value="">
+              <input class="form-control" name="password" id="pass" type="text" value="" required>
             </div>
             <div class="form-group">
               <label for="firstname">First Name</label>
-              <input class="form-control" name="firstName" id="firstname" type="text" value="">
+              <input class="form-control" name="firstName" id="firstname" type="text" value="" required>
             </div>
             <button type="submit" class="btn btn-primary">Create Account</button>
           </form>

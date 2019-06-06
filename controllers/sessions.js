@@ -8,7 +8,9 @@ router.get(`/`, (req,res) => {
   if(req.session.currentUser) {
     res.redirect(`/members/${ req.session.currentUser.userName }`)
   } else {
-        res.render(`sessions/new.ejs`)
+        res.render(`sessions/new.ejs`, {
+          currentUser: null
+        })
     }
 })
 

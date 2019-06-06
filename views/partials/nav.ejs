@@ -1,11 +1,11 @@
-<div class="container-fluid">
-  <h1>Chat Party</h1>
+<div class="container-fluid d-inline-flex">
+  <h1 class="mr-auto p-2">Chat Party</h1>
   <ul class="nav nav-pills justify-content-end">
     <% if (currentUser) { %>
-      <li class="nav-item">
+      <li class="p-2 nav-item">
         <a class="btn btn-info btn-sm " role="button" href="/members/<%= currentUser.userName %>">My Profile</a>
       </li>
-      <li class="nav-item">
+      <li class="p-2 nav-item logout">
         <form action="/log-in?_method=DELETE" method="POST">
           <button type="submit" class="btn btn-dark btn-sm" role="button">Log Out</button>
         </form>

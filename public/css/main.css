@@ -1,9 +1,43 @@
 body {
   background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
-  /* background-image: linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%); */
-  /* background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); */
+}
+.nav {
+  padding-top: 1em;
+}
+.forms {
+  padding: 2em;
 }
 
-.forms {
+.nav-item {
+  padding: .2em;
+}
 
+.chat-window {
+  width: 90%;
+  height: 800px;
+}
+
+#chat input {
+  width: 77%;
+  border: 0;
+  padding: 10px;
+  margin-top: .5em;
+  margin-right: .5%;
+}
+#chat button  {
+  background: #92fe9d;
+  border: none;
+  padding: 10px;
+}
+#messages {
+  list-style-type:
+  none; margin: 0;
+  padding: 0;
+}
+#messages li {
+  padding: 5px 10px;
+}
+#messages li:nth-child(odd) {
+  /* background: #00c9ff; */
+  /* color: white; */
 }
