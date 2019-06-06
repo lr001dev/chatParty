@@ -18,9 +18,17 @@ const upload = multer({
 })
 
 router.get(`/`, (req,res) => {
-  console.log(`current user is: ` + req.session.currentUser.userName)
-  console.log(`current user id is: ` + req.session.currentUser._id)
-  res.render(`pictures/upload.ejs`)
+  if(req.session.currentUser) {
+
+    console.log(`current user is: ` + req.session.currentUser.userName)
+    console.log(`current user id is: ` + req.session.currentUser._id)
+    
+    res.render(`pictures/upload.ejs`, {
+      currentUser: req.session.currentUser
+    })
+  } else {
+    res.redirect(`/log-in`)
+  }
 })
 
 router.post(`/upload-profile`, upload.single('images'), (req,res) => {

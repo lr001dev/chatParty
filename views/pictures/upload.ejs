@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <% include ../partials/head.ejs %>
   </head>
   <body>
-    <form action="/pictures/upload-profile" method="POST" enctype="multipart/form-data">
-        Select an image to upload:
-      <input type="file" name="images">
-      <input type="submit" value="Upload Image">
-    </form>
+    <header>
+      <nav>
+        <% include ../partials/nav.ejs %>
+      </nav>
+    </header>
+    <main class="container-fluid">
+          <div class="jumbotron bg-white">
+            <h1 class="display-4">Upload Image</h1>
+            <p class="lead"></p>
+              <p class="lead"></p>
+              <hr class="my-4">
+              <p></p>
+            </div>
+            <div class="bg-white rounded forms">
+              <form action="/pictures/upload-profile" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="photo">Upload New Image</label>
+                  <input class="form-control" name="images" id="photo" type="file" value="">
+                </div>
+              <button type="submit" class="btn btn-primary">Upload Image</button>
+            </form></br>
+          </div></br>
+        <a class="btn btn-outline-dark" href="/members/<%= currentUser.userName %>" role="button">Back To Profile</a>
+    </main>
   </body>
 </html>
