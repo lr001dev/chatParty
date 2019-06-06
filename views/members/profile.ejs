@@ -13,7 +13,11 @@
       <div class="border rounded">
         <div class="jumbotron bg-white">
           <div class="float-right">
-            <img width="150px" class="img-thumbnail rounded" src="/<%= foundUser.img %>" alt=""></br>
+            <% if(foundUser.img == '') { %>
+              <img width="150px" class="img-thumbnail rounded" src="/img/default.svg" alt="">
+            <% } else { %>
+              <img width="150px" class="img-thumbnail rounded" src="/<%= foundUser.img %>" alt="">
+          <% } %></br>
             <a class="btn btn-secondary btn-sm" href="/pictures/" role="button">Change Photo</a>
           </div></br>
           <h1 class="display-4">Hello, <%= foundUser.firstName %></h1>

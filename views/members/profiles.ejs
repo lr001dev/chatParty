@@ -8,14 +8,19 @@
       <% include ../partials/nav.ejs %>
     </header>
     <main>
-      <div class="container-fluid flex">
+      <div class="container-fluid d-inline-flex profiles">
         <% members.forEach((member, index)=> { %>
           <div class="card" style="width: 18rem;">
-            <img src="/<%=member.img%>" class="card-img-top" alt="...">
+            <% if(member.img === undefined) { %>
+              <img width="150px" class="card-img-top" src="/img/default.svg" alt="">
+            <% } else { %>
+              <img width="150px" class="card-img-top" src="/<%=member.img%>" alt="">
+          <% } %>
             <div class="card-body">
-              <h5 class="card-title"><%=member.firstName%></h5>
+              <h5 class="card-title">name: <%=member.firstName%></h5>
+              <h5 class="card-title">creator: <%=member.userName%></h5>
               <p class="card-text"><%=member.bio%></p>
-              <a href="/members/<%=member.userName%>" class="btn btn-primary">View <%=member.firstName%> Profile</a>
+              <!-- <a href="/members/<%=member.userName%>" class="btn btn-primary">View <%=member.firstName%> Profile</a> -->
             </div>
           </div>
         <% }) %>

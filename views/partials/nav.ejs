@@ -3,6 +3,9 @@
   <ul class="nav nav-pills justify-content-end">
     <% if (currentUser) { %>
       <li class="p-2 nav-item">
+        <a class="btn btn-info btn-sm " role="button" href="/members/">Members</a>
+      </li>
+      <li class="p-2 nav-item">
         <a class="btn btn-info btn-sm " role="button" href="/members/<%= currentUser.userName %>">My Profile</a>
       </li>
       <li class="p-2 nav-item logout">
