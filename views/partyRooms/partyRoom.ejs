@@ -12,9 +12,9 @@
     </header>
     <script>
       //Passing variables from backend to front end
-      const room = `<%= roomName %>`
-      const userName = `<%= currentUser.userName %>`
-      const pic = `<%= currentUser.img %>`
+      const room = <%= roomName %>
+      const userName = <%= currentUser.userName %>
+      const pic = <%= currentUser.img %>
       //Receiving message back from Server
       socket.on('connect', function() {
        // Connected, let's sign-up for to receive messages for this room
