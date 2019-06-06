@@ -49,3 +49,6 @@ body {
   display: inline-block;
   padding: .5em;
 }
+#jumbo-home {
+  padding-top: 1em;
+}
