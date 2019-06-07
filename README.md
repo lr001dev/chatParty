@@ -8,24 +8,24 @@ CRUD(CREATE, READ, UPDATE, DELETE) using REST API, Node.js, Express, Live Chat u
 
 # Features to Meet Requirements:
 
-Create Chat room
-View All Chat rooms
-Update Chat room
-Delete Chat room
-Create User Account
-Update User Account
-View User Account
+- Create Chat room
+- View All Chat rooms
+- Update Chat room
+- Delete Chat room
+- Create User Account
+- Update User Account
+- View User Account
 
 # Stretch Goals:
-Integrate User Authentication & Authorization
-Integrate SocketIO
-Integrate Image Uploads
-Integrate Avatars and Usernames into live chat window
+- Integrate User Authentication & Authorization
+- Integrate SocketIO
+- Integrate Image Uploads
+- Integrate Avatars and Usernames into live chat window
 
 # Biggest Challenges
-Creating Authorization to specific to currentUser
-Creating new chat rooms with one .ejs render
-Sending avatars and usernames via sockets into chat rooms
+- Creating Authorization to specific to currentUser
+- Creating new chat rooms with one .ejs render
+- Sending avatars and usernames via sockets into chat rooms
 
 # Workflow on Trello:
 https://trello.com/invite/b/xeBeVRpr/d5075484bda28ab8f18efc44f4fa5860/sei-chat-party
