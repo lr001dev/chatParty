@@ -13,8 +13,10 @@
       <div class="border rounded">
         <div class="jumbotron bg-white">
           <div class="float-right">
-            <% if(foundUser.img === undefined) { %>
+            <% if(foundUser.img === undefined) {
+              currentUser.img = /img/default.svg %>
               <img width="150px" class="img-thumbnail rounded" src="/img/default.svg" alt="">
+              
             <% } else { %>
               <img width="150px" class="img-thumbnail rounded" src="/<%= foundUser.img %>" alt="">
           <% } %></br>
