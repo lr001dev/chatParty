@@ -60,7 +60,9 @@ footer p {
 #jumbo-home {
   padding-top: 1em;
 }
-
+#pic-button {
+  margin-top: .5em;
+}
 @media only screen and (max-width: 600px) {
   #logo {
     width: 175px;
