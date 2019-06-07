@@ -38,8 +38,9 @@ router.get(`/`, (req,res) => {
 router.post(`/upload-profile`, upload.single('images'), (req,res) => {
   console.log(req.file)
   // console.log(`current user is: ` + req.session.currentUser)
-  Member.findByIdAndUpdate(req.session.currentUser._id, { $set: { img: req.file.path } }, {new: true},
+  Member.findByIdAndUpdate(req.session.currentUser._id, { $set: { img: req.file.path } }, { new: true },
     (err, updatedUser) => {
+      req.session.currentUser.img = updatedUser.img
     // console.log(`Updated user: ${ updatedUser }`)
     res.redirect(`/members/${ req.session.currentUser.userName }`)
   })
