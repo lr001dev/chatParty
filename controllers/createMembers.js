@@ -20,7 +20,7 @@ router.post(`/`, (req,res) => {
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
   // console.log(req.body)
   Member.create(req.body, (err, createdMember) => {
-    console.log(`Create new member ${ createdMember }`)
+    // console.log(`Create new member ${ createdMember }`)
     res.redirect(`/log-in`)
   })
 })

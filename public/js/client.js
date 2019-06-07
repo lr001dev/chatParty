@@ -7,8 +7,7 @@ $(() => {
 	  e.preventDefault()
 	  socket.emit(`chat message`, $(`#m`).val())
 	  socket.emit(`chat message`, $(`#m`).val(),room,pic,userName)
-	  // io.to(room).emit(`chat message`, $(`#m`).val())
-	  // io.to(room).emit(`chat message`, $(`#m`).val())
+		
 	  $(`#m`).val(``)
 	  //Not sure why we are returning false
 	  return false

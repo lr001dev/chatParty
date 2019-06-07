@@ -30,7 +30,7 @@ router.get(`/:userName`, (req,res) => {
           }
         },
         { $match : { userName : req.params.userName } }], (err, foundMember) => {
-        console.log(`Found Member: ${ foundMember[0] }`)
+        // console.log(`Found Member: ${ foundMember[0] }`)
         res.render(`members/profile.ejs`, {
             currentUser: req.session.currentUser,
             foundUser: foundMember[0]
@@ -65,7 +65,7 @@ router.put(`/:id`, (req,res) => {
 
   Member.findByIdAndUpdate(req.params.id, req.body, { new: true},
     (err, updatedUser) => {
-    console.log(`Updated user: ${ updatedUser }`)
+    // console.log(`Updated user: ${ updatedUser }`)
     res.redirect(`/members/${ req.session.currentUser.userName }`)
   })
 })

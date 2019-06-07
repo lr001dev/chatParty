@@ -56,10 +56,10 @@ router.get(`/:id/edit`, (req,res) => {
 //Create New Party Rooms
 router.post(`/`, (req,res) => {
   PartyRoom.create(req.body, (err, partyRoom) => {
-    console.log(`Create new party room ${ partyRoom }`)
+    // console.log(`Create new party room ${ partyRoom }`)
     Member.findByIdAndUpdate(req.session.currentUser._id, { $push: { partyRooms: partyRoom._id } }, {new: true},
     (err,updateMember) => {
-      console.log(`Update member ${ updateMember }`)
+      // console.log(`Update member ${ updateMember }`)
     })
     res.redirect(`/members/${ req.session.currentUser.userName }`)
   })
@@ -68,7 +68,7 @@ router.post(`/`, (req,res) => {
 router.put(`/:id`, (req,res) => {
   PartyRoom.findByIdAndUpdate(req.params.id, req.body, { new: true},
     (err, updatedRoom) => {
-    console.log(`Updated room: ${ updatedRoom}`)
+    // console.log(`Updated room: ${ updatedRoom}`)
     res.redirect(`/members/${ req.session.currentUser.userName }`)
   })
 })
