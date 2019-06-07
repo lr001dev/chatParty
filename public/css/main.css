@@ -1,7 +1,9 @@
 body {
   background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
 }
-
+main {
+  min-height: 800px;
+}
 footer {
   padding-top: 2em;
 }
@@ -17,7 +19,7 @@ footer {
 }
 
 .chat-window {
-  width: 90%;
+  width: 100%;
   height: 600px;
 }
 footer p {

@@ -26,13 +26,6 @@
                   <th scope="col">Room Name</th>
                   <th scope="col">Creator</th>
                   <th scope="col">Description</th>
-                  <th scope="col">Visit</th>
-                  <% partyRooms.forEach((createrRoom, index)=> {
-                    if(createrRoom.creator === currentUser.userName) { %>
-                      <th scope="col">Edit</th>
-                      <th scope="col">Delete</th>
-                    <% } else { }
-                    }) %>
                 </tr>
               </thead>
               <tbody>
