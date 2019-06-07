@@ -3,7 +3,10 @@
 Chat Party is live chat application that allows users to create their own chat rooms and host group chats.
 
 # Purpose
-I was interested to create an application that used some kind of socket framework. I have been reading about Socket IO js library and wanted to understand how sockets work and if I could successfully implement it and send events from the front end to the back end.
+I was interested in creating an application that used some kind of socket framework. I have been reading about Socket IO and it's js library to understand how sockets work and if I could successfully implement it and send events from the front end to the back end.
+
+Note:
+Socket IO USES websockets but it's not an implementation of websockets.
 
 # Technologies Used:
 
