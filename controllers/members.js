@@ -31,6 +31,10 @@ router.get(`/:userName`, (req,res) => {
         },
         { $match : { userName : req.params.userName } }], (err, foundMember) => {
         // console.log(`Found Member: ${ foundMember[0] }`)
+        //Edit current session object with default avatar image
+        if(foundMember[0].img == undefined) {
+          req.session.currentUser.img = `img/default.svg`
+        }
         res.render(`members/profile.ejs`, {
             currentUser: req.session.currentUser,
             foundUser: foundMember[0]

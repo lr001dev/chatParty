@@ -19,7 +19,7 @@ router.get(`/`, (req,res) => {
 
 router.get(`/party/:nameSpace`, (req,res) => {
   if(req.session.currentUser) {
-
+    console.log(req.session.currentUser.img)
     res.render(`partyRooms/partyRoom.ejs`, {
       roomName: req.params.nameSpace,
       currentUser: req.session.currentUser
