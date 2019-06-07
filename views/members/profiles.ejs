@@ -8,7 +8,7 @@
       <% include ../partials/nav.ejs %>
     </header>
     <main>
-      <div class="container-fluid d-inline-flex profiles">
+      <div class="container-fluid d-inline-flex profiles flex-wrap">
         <% members.forEach((member, index)=> { %>
           <div class="card" style="width: 18rem;">
             <% if(member.img === undefined) { %>
