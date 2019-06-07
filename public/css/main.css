@@ -1,6 +1,7 @@
 body {
   background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
 }
+
 .nav {
   padding-top: 1em;
 }
@@ -16,7 +17,9 @@ body {
   width: 90%;
   height: 800px;
 }
-
+footer p {
+  text-align: center;
+}
 #chat input {
   width: 77%;
   border: 0;
