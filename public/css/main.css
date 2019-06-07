@@ -52,3 +52,9 @@ body {
 #jumbo-home {
   padding-top: 1em;
 }
+
+@media only screen and (max-width: 600px) {
+  #logo {
+    width: 175px;
+  }
+}
